@@ -15,6 +15,10 @@
             <div class="logo">
                 <h1>Swimx<span>Training</span></h1>
             </div>
+            <!-- Botón para activar/desactivar el menú en dispositivos móviles -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#quienes-somos">Quiénes Somos</a></li>
@@ -25,7 +29,7 @@
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contacto" class="btn-contacto">Contacto</a></li>
                     <!--<li><a href="/what if/index.html">What if</a></li>-->
-                    <li><a href="/analysis/calendario.html">Calendario</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
                 </ul>
             </nav>
         </div>
@@ -563,23 +567,24 @@
     <!-- Agregar el script al final del body -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Funcionalidad del formulario de contacto
             const contactForm = document.getElementById('contactForm');
             const formMessages = document.getElementById('form-messages');
             const submitBtn = document.getElementById('submitBtn');
             const btnText = submitBtn.querySelector('.btn-text');
             const btnLoading = submitBtn.querySelector('.btn-loading');
-
+        
             // URL del webhook de Make.com
             const webhookUrl = 'https://hook.us2.make.com/vqh7l22vpxy0o4pz91dl6x62adm3d4pc';
-
+        
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-
+        
                 // Mostrar estado de carga
                 btnText.style.display = 'none';
                 btnLoading.style.display = 'inline-block';
                 submitBtn.disabled = true;
-
+        
                 // Recopilar datos del formulario
                 const formData = {
                     nombre: document.getElementById('nombre').value,
@@ -589,7 +594,7 @@
                     fecha: new Date().toISOString(),
                     origen: 'Formulario de contacto web'
                 };
-
+        
                 // Enviar datos a Make.com
                 fetch(webhookUrl, {
                     method: 'POST',
@@ -598,34 +603,46 @@
                     },
                     body: JSON.stringify(formData)
                 })
-                    .then(response => {
-                        // Restablecer estado del botón
-                        btnText.style.display = 'inline-block';
-                        btnLoading.style.display = 'none';
-                        submitBtn.disabled = false;
-
-                        if (response.ok) {
-                            // Éxito
-                            formMessages.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</div>';
-                            contactForm.reset();
-                        } else {
-                            // Error en la respuesta del servidor
-                            throw new Error('Error en el servidor');
-                        }
-                    })
-                    .catch(error => {
-                        // Error en la petición
-                        console.error('Error:', error);
-                        formMessages.innerHTML = '<div class="alert alert-error"><i class="fas fa-exclamation-circle"></i> Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.</div>';
-
-                        // Restablecer estado del botón
-                        btnText.style.display = 'inline-block';
-                        btnLoading.style.display = 'none';
-                        submitBtn.disabled = false;
-                    });
+                .then(response => {
+                    // Restablecer estado del botón
+                    btnText.style.display = 'inline-block';
+                    btnLoading.style.display = 'none';
+                    submitBtn.disabled = false;
+        
+                    if (response.ok) {
+                        // Éxito
+                        formMessages.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</div>';
+                        contactForm.reset();
+                    } else {
+                        // Error en la respuesta del servidor
+                        throw new Error('Error en el servidor');
+                    }
+                })
+                .catch(error => {
+                    // Error en la petición
+                    console.error('Error:', error);
+                    formMessages.innerHTML = '<div class="alert alert-error"><i class="fas fa-exclamation-circle"></i> Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.</div>';
+        
+                    // Restablecer estado del botón
+                    btnText.style.display = 'inline-block';
+                    btnLoading.style.display = 'none';
+                    submitBtn.disabled = false;
+                });
+        
             });
+        
+            // Funcionalidad del botón de menú (para dispositivos móviles)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('nav ul');
+        
+            if (menuToggle && navUl) {
+                menuToggle.addEventListener('click', function() {
+                    navUl.classList.toggle('active');
+                });
+            }
         });
-    </script>
+        </script>
+        
 </body>
 <!--COMANDOS DE GITHUB
 git init > para iniciar git
@@ -634,6 +651,5 @@ git commit -m"" entre las comillas se agregan los comentarios de los cambios rea
 git status > para ver condición de la situación de los distintos archivos
 git push origin master > para subir los cambios a github
 -->
+
 </html>
-
-
