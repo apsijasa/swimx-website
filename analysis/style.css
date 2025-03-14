@@ -516,6 +516,16 @@ nav ul li a:hover::after {
     }
 }
 
+/* Alineación justificada en las respuestas de las preguntas frecuentes */
+.faq-answer p {
+    text-align: justify;
+}
+
+/* Alineación justificada en las respuestas de la sección de Proceso de Evaluación Detallado */
+.proceso-step .paso-contenido p {
+    text-align: justify;
+}
+
 /* Footer */
 footer {
     background-color: var(--color-dark);
