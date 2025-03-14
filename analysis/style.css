@@ -837,3 +837,15 @@ input[type="file"] {
     border: 1px solid #0077ff;
     color: #0077ff;
 }
+
+/* Centra el contenido del contenedor del calendario */
+#calendario-eventos .container {
+    text-align: center;       /* Centra contenido en línea (como el iframe) */
+  }
+  
+  /* Asegúrate de que el iframe se muestre como elemento en línea o block para que la regla anterior funcione */
+  #calendario-eventos .container iframe {
+    display: inline-block;    /* o 'block' si prefieres */
+    margin: 0 auto;
+  }
+  

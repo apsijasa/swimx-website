@@ -163,8 +163,7 @@
         <div class="container">
             <div class="hero-content">
                 <h2>Calendario de Competencias</h2>
-                <p>Consulta las próximas competencias de natación y registra tus eventos para compartir con la comunidad
-                </p>
+                <p>Consulta las próximas competencias de natación y registra tus eventos para compartir con la comunidad</p>
             </div>
         </div>
     </section>
@@ -173,8 +172,7 @@
         <div class="container">
             <h2>Registrar Nueva Competencia</h2>
             <p class="section-description">
-                Completa el siguiente formulario para añadir tu competencia al calendario. Los campos marcados con * son
-                obligatorios.
+                Completa el siguiente formulario para añadir tu competencia al calendario. Los campos marcados con * son obligatorios.
             </p>
 
             <form id="competencia-form" class="competencia-form">
@@ -307,7 +305,18 @@
     </section>
 
     <section id="calendario-eventos" class="calendario-eventos">
-        <!-- Resto del código del calendario... -->
+        <div class="container">
+            <h2>Próximas Competencias</h2>
+            <!-- Widget de Google Calendar -->
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?src=YWIzOWY0YmFiMTkzNWY1MGQ5NWE0NTJiNGI0MGQ0ODBjNmExNTVhOTU0YWU2Nzg1OWUxMGNjN2YyMDFjN2ExY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=America%2FSantiago" 
+                style="border: 0" 
+                width="800" 
+                height="600" 
+                frameborder="0" 
+                scrolling="no">
+            </iframe>
+        </div>
     </section>
 
     <footer>
@@ -628,8 +637,7 @@
                 });
             }
         });
-        </script>
-        
+    </script>
 </body>
 <!--COMANDOS DE GITHUB
 git init > para iniciar git
@@ -638,5 +646,4 @@ git commit -m" entre las comillas se agregan los comentarios de los cambios real
 git status > para ver condición de la situación de los distintos archivos
 git push origin master > para subir los cambios a github
 -->
-
 </html>
