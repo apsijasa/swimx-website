@@ -7,6 +7,7 @@
     <title>Calendario de Competencias - Swimx Training</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos específicos para el formulario */
         .form-grid {
@@ -163,7 +164,8 @@
         <div class="container">
             <div class="hero-content">
                 <h2>Calendario de Competencias</h2>
-                <p>Consulta las próximas competencias de natación y registra tus eventos para compartir con la comunidad</p>
+                <p>Consulta las próximas competencias de natación y registra tus eventos para compartir con la comunidad
+                </p>
             </div>
         </div>
     </section>
@@ -172,7 +174,8 @@
         <div class="container">
             <h2>Registrar Nueva Competencia</h2>
             <p class="section-description">
-                Completa el siguiente formulario para añadir tu competencia al calendario. Los campos marcados con * son obligatorios.
+                Completa el siguiente formulario para añadir tu competencia al calendario. Los campos marcados con * son
+                obligatorios.
             </p>
 
             <form id="competencia-form" class="competencia-form">
@@ -308,13 +311,9 @@
         <div class="container">
             <h2>Próximas Competencias</h2>
             <!-- Widget de Google Calendar -->
-            <iframe 
-                src="https://calendar.google.com/calendar/embed?src=YWIzOWY0YmFiMTkzNWY1MGQ5NWE0NTJiNGI0MGQ0ODBjNmExNTVhOTU0YWU2Nzg1OWUxMGNjN2YyMDFjN2ExY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=America%2FSantiago" 
-                style="border: 0" 
-                width="800" 
-                height="600" 
-                frameborder="0" 
-                scrolling="no">
+            <iframe
+                src="https://calendar.google.com/calendar/u/0?cid=YWIzOWY0YmFiMTkzNWY1MGQ5NWE0NTJiNGI0MGQ0ODBjNmExNTVhOTU0YWU2Nzg1OWUxMGNjN2YyMDFjN2ExY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
             </iframe>
         </div>
     </section>
@@ -333,7 +332,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log("DOM completamente cargado");
-        
+
             // Datos para el manejo de regiones, comunas y ciudades
             const regionesData = {
                 'arica': {
@@ -445,7 +444,7 @@
                     }
                 }
             };
-        
+
             // Elementos del DOM
             const regionSelect = document.getElementById('region');
             const comunaSelect = document.getElementById('comuna');
@@ -455,12 +454,12 @@
             const fileButton = document.querySelector('.btn-file');
             const competenciaForm = document.getElementById('competencia-form');
             const formMessages = document.getElementById('form-messages');
-        
+
             // Configurar mínimas fechas en los inputs de fecha
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('fecha-inicio').min = today;
             document.getElementById('fecha-termino').min = today;
-        
+
             // Manejador para actualizar la fecha de término según la fecha de inicio
             document.getElementById('fecha-inicio').addEventListener('change', function () {
                 document.getElementById('fecha-termino').min = this.value;
@@ -468,29 +467,29 @@
                     document.getElementById('fecha-termino').value = this.value;
                 }
             });
-        
+
             // Al cargar, desactivar los selectores que dependen de otros
             comunaSelect.disabled = true;
             ciudadSelect.disabled = true;
-        
+
             // Manejador para el cambio de región
             regionSelect.addEventListener('change', function () {
                 console.log("Región seleccionada:", this.value);
-        
+
                 // Resetear comuna y ciudad
                 comunaSelect.innerHTML = '<option value="">Selecciona una comuna</option>';
                 ciudadSelect.innerHTML = '<option value="">Selecciona primero una comuna</option>';
-        
+
                 // Si no hay región seleccionada, desactivar selectores dependientes
                 if (!this.value) {
                     comunaSelect.disabled = true;
                     ciudadSelect.disabled = true;
                     return;
                 }
-        
+
                 // Activar selector de comuna
                 comunaSelect.disabled = false;
-        
+
                 // Cargar las comunas de la región seleccionada
                 const comunas = regionesData[this.value].comunas;
                 for (const comunaKey in comunas) {
@@ -501,26 +500,26 @@
                             txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
                     comunaSelect.appendChild(option);
                 }
-        
+
                 // Desactivar selector de ciudad hasta que se seleccione comuna
                 ciudadSelect.disabled = true;
             });
-        
+
             // Manejador para el cambio de comuna
             comunaSelect.addEventListener('change', function () {
                 console.log("Comuna seleccionada:", this.value);
-        
+
                 // Resetear ciudad
                 ciudadSelect.innerHTML = '<option value="">Selecciona una ciudad</option>';
-        
+
                 // Si no hay comuna seleccionada, desactivar selector de ciudad
                 if (!this.value) {
                     ciudadSelect.disabled = true;
                     return;
                 }
-        
+
                 const regionSeleccionada = regionSelect.value;
-        
+
                 // Verificar que existan los datos
                 if (!regionesData[regionSeleccionada] ||
                     !regionesData[regionSeleccionada].comunas ||
@@ -528,10 +527,10 @@
                     console.error('Error: Datos no encontrados para la región/comuna seleccionada');
                     return;
                 }
-        
+
                 // Activar selector de ciudad
                 ciudadSelect.disabled = false;
-        
+
                 // Cargar las ciudades de la comuna seleccionada
                 const ciudades = regionesData[regionSeleccionada].comunas[this.value];
                 ciudades.forEach(ciudad => {
@@ -541,12 +540,12 @@
                     ciudadSelect.appendChild(option);
                 });
             });
-        
+
             // Manejador para el input de archivo
             fileButton.addEventListener('click', function () {
                 fileInput.click();
             });
-        
+
             fileInput.addEventListener('change', function () {
                 if (this.files.length > 0) {
                     fileInfoName.textContent = this.files[0].name;
@@ -554,7 +553,7 @@
                     fileInfoName.textContent = 'Ningún archivo seleccionado';
                 }
             });
-        
+
             // Validación del formulario
             function validarFormulario() {
                 // Verificar categorías seleccionadas
@@ -563,76 +562,76 @@
                     formMessages.innerHTML = '<div class="alert alert-error">Selecciona al menos una categoría</div>';
                     return false;
                 }
-        
+
                 // Verificar que se ha seleccionado un archivo
                 if (fileInput.files.length === 0) {
                     formMessages.innerHTML = '<div class="alert alert-error">Debes subir un documento de bases</div>';
                     return false;
                 }
-        
+
                 return true;
             }
-        
+
             // Envío del formulario
             competenciaForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 console.log("Formulario enviado");
-        
+
                 // Validar formulario
                 if (!validarFormulario()) {
                     return;
                 }
-        
+
                 // Crear FormData para enviar los datos
                 const formData = new FormData(this);
-        
+
                 // Recopilar categorías seleccionadas
                 const categorias = [];
                 document.querySelectorAll('input[name="categorias"]:checked').forEach(checkbox => {
                     categorias.push(checkbox.value);
                 });
-        
+
                 // Reemplazar los checkboxes de categorías por un array
                 formData.delete('categorias');
                 formData.append('categorias', categorias.join(', '));
-        
+
                 // Mostrar indicador de carga
                 formMessages.innerHTML = '<div class="alert alert-info">Enviando datos...</div>';
-        
+
                 // Enviar datos al webhook
                 fetch('https://hook.us2.make.com/26r1m8d2erwkuofvc8s4hq633l14w4ji', {
                     method: 'POST',
                     body: formData
                 })
-                .then(response => {
-                    if (response.ok) {
-                        return response.text();
-                    }
-                    throw new Error('Error en la respuesta del servidor');
-                })
-                .then(data => {
-                    // Mostrar mensaje de éxito
-                    formMessages.innerHTML = '<div class="alert alert-success">¡Competencia registrada con éxito!</div>';
-                    competenciaForm.reset();
-                    fileInfoName.textContent = 'Ningún archivo seleccionado';
-        
-                    // Recargar la página después de 3 segundos
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 3000);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    formMessages.innerHTML = '<div class="alert alert-error">Error al enviar los datos. Inténtalo de nuevo más tarde.</div>';
-                });
+                    .then(response => {
+                        if (response.ok) {
+                            return response.text();
+                        }
+                        throw new Error('Error en la respuesta del servidor');
+                    })
+                    .then(data => {
+                        // Mostrar mensaje de éxito
+                        formMessages.innerHTML = '<div class="alert alert-success">¡Competencia registrada con éxito!</div>';
+                        competenciaForm.reset();
+                        fileInfoName.textContent = 'Ningún archivo seleccionado';
+
+                        // Recargar la página después de 3 segundos
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        formMessages.innerHTML = '<div class="alert alert-error">Error al enviar los datos. Inténtalo de nuevo más tarde.</div>';
+                    });
             });
-        
+
             // Funcionalidad del botón de menú (para dispositivos móviles)
             const menuToggle = document.querySelector('.menu-toggle');
             const navUl = document.querySelector('nav ul');
-        
+
             if (menuToggle && navUl) {
-                menuToggle.addEventListener('click', function() {
+                menuToggle.addEventListener('click', function () {
                     navUl.classList.toggle('active');
                 });
             }
@@ -646,4 +645,5 @@ git commit -m" entre las comillas se agregan los comentarios de los cambios real
 git status > para ver condición de la situación de los distintos archivos
 git push origin master > para subir los cambios a github
 -->
+
 </html>
