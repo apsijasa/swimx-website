@@ -841,11 +841,265 @@ input[type="file"] {
 /* Centra el contenido del contenedor del calendario */
 #calendario-eventos .container {
     text-align: center;       /* Centra contenido en línea (como el iframe) */
-  }
+}
   
-  /* Asegúrate de que el iframe se muestre como elemento en línea o block para que la regla anterior funcione */
-  #calendario-eventos .container iframe {
+/* Asegúrate de que el iframe se muestre como elemento en línea o block para que la regla anterior funcione */
+#calendario-eventos .container iframe {
     display: inline-block;    /* o 'block' si prefieres */
     margin: 0 auto;
-  }
-  
+}
+
+/* ===== INICIO: ESTILOS PARA LA PÁGINA DE VIDEOS ===== */
+/* Estos estilos se han añadido para la nueva sección de Videos */
+
+/* Sección de videos - Estructura principal */
+.videos-gallery {
+    background-color: var(--color-white);
+    padding: 80px 0;
+}
+
+/* Filtros de categorías para la galería de videos */
+.video-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.category-btn {
+    background-color: var(--color-gray);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-dark);
+}
+
+.category-btn:hover {
+    background-color: var(--color-light);
+}
+
+.category-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Grid de videos - Estructura flexible y responsiva */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Tarjeta individual de video */
+.video-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del thumbnail con proporción 16:9 */
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Proporción 16:9 para el reproductor */
+    overflow: hidden;
+}
+
+.video-thumbnail iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Información del video */
+.video-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+}
+
+.video-info p {
+    color: var(--color-gray-dark);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Metadatos del video (fecha, duración) */
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-gray-dark);
+    font-size: 0.9rem;
+}
+
+.video-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.video-meta i {
+    margin-right: 5px;
+}
+
+/* Sección de video destacado */
+.video-destacado {
+    background-color: var(--color-gray);
+    padding: 80px 0;
+}
+
+.featured-video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Proporción 16:9 */
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.featured-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.featured-video-info {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.featured-video-info h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: var(--color-dark);
+}
+
+.featured-video-info p {
+    color: var(--color-gray-dark);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.video-actions {
+    margin-top: 20px;
+}
+
+/* Paginación de videos */
+.video-pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.load-more-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.load-more-btn:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Sección de suscripción al canal de YouTube */
+.suscripcion {
+    background: linear-gradient(rgba(0, 119, 182, 0.9), rgba(0, 119, 182, 0.9)), url('/api/placeholder/1200/400') no-repeat center center/cover;
+    color: var(--color-white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.suscripcion-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.suscripcion h2 {
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+
+.suscripcion p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Botón específico para YouTube */
+.yt-btn {
+    background-color: #FF0000; /* Color rojo de YouTube */
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.yt-btn:hover {
+    background-color: #cc0000;
+}
+
+.yt-btn i {
+    font-size: 1.3rem;
+}
+
+/* Media Queries específicos para la sección de videos */
+@media (max-width: 768px) {
+    .videos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .featured-video-info h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .featured-video-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .video-meta {
+        flex-direction: column;
+        gap
