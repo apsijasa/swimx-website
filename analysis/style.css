@@ -1102,4 +1102,8 @@ input[type="file"] {
     
     .video-meta {
         flex-direction: column;
-        gap
+        gap: 5px;
+    }
+}
+
+/* ===== FIN: ESTILOS PARA LA PÁGINA DE VIDEOS ===== */
