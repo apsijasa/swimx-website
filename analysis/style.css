@@ -838,9 +838,8 @@ input[type="file"] {
 #calendario-eventos .container iframe {
     height: 350px;
 }
-}
 
-    {
+{
     display: flex;
     justify-content: space-between;
     color: var(--color-gray-dark);
