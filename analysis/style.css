@@ -237,15 +237,15 @@ nav ul li a:hover::after {
 
 /* Imágenes específicas para cada página */
 .hero-piscina {
-    background-image: url('asset/image/piscina.png');
+    background-image: url('asset/image/piscina.jpeg');
 }
 
 .hero-videos {
-    background-image: url('asset/image/nadador.ai.png');
+    background-image: url('asset/image/nadador.jpeg');
 }
 
 .hero-calendario {
-    background-image: url('asset/image/barra.ai.png');
+    background-image: url('asset/image/barra.jpeg');
 }
 
 /* Quiénes Somos */
