@@ -224,6 +224,15 @@ nav ul li a:hover::after {
     margin-bottom: 40px;
 }
 
+/* Sección Hero */
+.hero {
+    background: linear-gradient(rgba(0, 119, 182, 0.7), rgba(0, 119, 182, 0.7)), url('asset/image/fotos\ piscina.jpg') no-repeat center center/cover;
+    color: var(--color-white);
+    padding: 160px 0 100px;
+    text-align: center;
+    background-position: bottom;
+}
+
 /* Quiénes Somos */
 .quienes-somos {
     background-color: var(--color-gray);
