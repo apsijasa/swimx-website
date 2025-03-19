@@ -224,13 +224,22 @@ nav ul li a:hover::after {
     margin-bottom: 40px;
 }
 
-/* Sección Hero */
-.hero {
-    background: linear-gradient(rgba(0, 119, 182, 0.7), rgba(0, 119, 182, 0.7)), url('asset/image/fotos\ piscina.jpg') no-repeat center center/cover;
+.hero-base {
     color: var(--color-white);
-    padding: 160px 0 100px;
+    /* Ajusta el padding que desees para ambas secciones */
+    padding: 160px 0 100px; 
     text-align: center;
-    background-position: bottom;
+
+    /* El mismo gradiente para ambas (ajusta el rgba si quieres otra opacidad) */
+    background: linear-gradient(rgba(0, 119, 182, 0.8), rgba(0, 119, 182, 0.8));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.hero-piscina {
+    background-image: url('asset/image/piscina.jpg');
 }
 
 /* Quiénes Somos */
@@ -849,12 +858,14 @@ input[type="file"] {
 
 /* Centra el contenido del contenedor del calendario */
 #calendario-eventos .container {
-    text-align: center;       /* Centra contenido en línea (como el iframe) */
+    text-align: center;
+    /* Centra contenido en línea (como el iframe) */
 }
-  
+
 /* Asegúrate de que el iframe se muestre como elemento en línea o block para que la regla anterior funcione */
 #calendario-eventos .container iframe {
-    display: inline-block;    /* o 'block' si prefieres */
+    display: inline-block;
+    /* o 'block' si prefieres */
     margin: 0 auto;
 }
 
@@ -862,6 +873,11 @@ input[type="file"] {
 /* Estos estilos se han añadido para la nueva sección de Videos */
 
 /* Sección de videos - Estructura principal */
+
+.hero-videos {
+    background-image: url('asset/image/nadador.jpg');
+}
+
 .videos-gallery {
     background-color: var(--color-white);
     padding: 80px 0;
@@ -924,7 +940,8 @@ input[type="file"] {
 .video-thumbnail {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* Proporción 16:9 para el reproductor */
+    padding-top: 56.25%;
+    /* Proporción 16:9 para el reproductor */
     overflow: hidden;
 }
 
@@ -983,7 +1000,8 @@ input[type="file"] {
 .featured-video-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* Proporción 16:9 */
+    padding-top: 56.25%;
+    /* Proporción 16:9 */
     margin-bottom: 30px;
     border-radius: 10px;
     overflow: hidden;
@@ -1069,7 +1087,8 @@ input[type="file"] {
 
 /* Botón específico para YouTube */
 .yt-btn {
-    background-color: #FF0000; /* Color rojo de YouTube */
+    background-color: #FF0000;
+    /* Color rojo de YouTube */
     font-size: 1.1rem;
     display: inline-flex;
     align-items: center;
@@ -1089,7 +1108,7 @@ input[type="file"] {
     .videos-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-    
+
     .featured-video-info h3 {
         font-size: 1.5rem;
     }
@@ -1099,16 +1118,16 @@ input[type="file"] {
     .videos-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .category-btn {
         padding: 8px 16px;
         font-size: 0.9rem;
     }
-    
+
     .featured-video-info h3 {
         font-size: 1.3rem;
     }
-    
+
     .video-meta {
         flex-direction: column;
         gap: 5px;
