@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario de Competencias - Swimx Training</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Competitions Calendar - Swimx Training</title>
+    <meta name="description"
+        content="Check out upcoming swimming competitions and register your events to share with the community.">
+    <meta name="keywords" content="swimming, competitions, calendar, registration, events">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -16,24 +20,20 @@
             <div class="logo">
                 <h1>Swimx<span>Training</span></h1>
             </div>
-            <!-- Botón para activar/desactivar el menú en dispositivos móviles -->
-            <button class="menu-toggle" aria-label="Abrir menú">
+            <!-- Mobile menu toggle button -->
+            <button class="menu-toggle" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
             </button>
-
             <nav>
                 <ul>
-                    <li><a href="index.html">Quiénes Somos</a></li>
-                    <li><a href="index.html">Servicios</a></li>
-                    <li><a href="index.html">Precios</a></li>
+                    <li><a href="index.html">About Us</a></li>
+                    <li><a href="index.html">Services</a></li>
+                    <li><a href="index.html">Pricing</a></li>
                     <li><a href="videos.html" class="active">Videos</a></li>
-                    <!--<li><a href="#testimonios">Testimonios</a></li>-->
-                    <li><a href="index.html">Proceso</a></li>
+                    <li><a href="index.html">Process</a></li>
                     <li><a href="index.html">FAQ</a></li>
-                    <li><a href="index.html" class="btn-contacto">Contacto</a></li>
-                    <!--<li><a href="/what if/index.html">What if</a></li>-->
-                    <li><a href="calendario.html" class="active">Calendario</a></li>
-                    <!--<li><a href="blog.html">Blog</a></li> -->
+                    <li><a href="index.html" class="btn-contacto">Contact</a></li>
+                    <li><a href="calendario.html" class="active">Calendar</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,39 +42,37 @@
     <section class="hero-base hero-calendario">
         <div class="container">
             <div class="hero-content">
-                <h2>Calendario de Competencias</h2>
-                <p>Consulta las próximas competencias de natación y registra tus eventos para compartir con la comunidad
-                </p>
+                <h2>Competitions Calendar</h2>
+                <p>Check out upcoming swimming competitions and register your events to share with the community.</p>
             </div>
         </div>
     </section>
 
     <section id="registro-competencia" class="registro-competencia">
         <div class="container">
-            <h2>Registrar Nueva Competencia</h2>
+            <h2>Register New Competition</h2>
             <p class="section-description">
-                Completa el siguiente formulario para añadir tu competencia al calendario. Los campos marcados con * son
-                obligatorios.
+                Complete the form below to add your competition to the calendar. Fields marked with * are required.
             </p>
 
             <form id="competencia-form" class="competencia-form">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="nombre">Nombre de la competencia *</label>
+                        <label for="nombre">Competition Name *</label>
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="region">Región *</label>
+                        <label for="region">Region *</label>
                         <select id="region" name="region" required>
-                            <option value="">Selecciona una región</option>
+                            <option value="">Select a region</option>
                             <option value="arica">Arica y Parinacota</option>
                             <option value="tarapaca">Tarapacá</option>
                             <option value="antofagasta">Antofagasta</option>
                             <option value="atacama">Atacama</option>
                             <option value="coquimbo">Coquimbo</option>
                             <option value="valparaiso">Valparaíso</option>
-                            <option value="metropolitana">Metropolitana de Santiago</option>
+                            <option value="metropolitana">Metropolitan Santiago</option>
                             <option value="ohiggins">O'Higgins</option>
                             <option value="maule">Maule</option>
                             <option value="nuble">Ñuble</option>
@@ -88,101 +86,102 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="comuna">Comuna *</label>
+                        <label for="comuna">Commune *</label>
                         <select id="comuna" name="comuna" required>
-                            <option value="">Selecciona primero una región</option>
+                            <option value="">Select a commune</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="ciudad">Ciudad</label>
+                        <label for="ciudad">City</label>
                         <select id="ciudad" name="ciudad">
-                            <option value="">Selecciona primero una comuna</option>
+                            <option value="">Select a city</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="fecha-inicio">Fecha de inicio *</label>
+                        <label for="fecha-inicio">Start Date *</label>
                         <input type="date" id="fecha-inicio" name="fecha-inicio" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="fecha-termino">Fecha de término *</label>
+                        <label for="fecha-termino">End Date *</label>
                         <input type="date" id="fecha-termino" name="fecha-termino" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="tipo-piscina">Tipo de piscina *</label>
+                        <label for="tipo-piscina">Pool Type *</label>
                         <select id="tipo-piscina" name="tipo-piscina" required>
-                            <option value="">Selecciona tipo de piscina</option>
-                            <option value="25m">25 metros</option>
-                            <option value="50m">50 metros</option>
+                            <option value="">Select pool type</option>
+                            <option value="25m">25 meters</option>
+                            <option value="50m">50 meters</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email del organizador *</label>
+                        <label for="email">Organizer's Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group categorias-group full-width">
-                        <label>Categorías que competirán *</label>
+                        <label>Competing Categories *</label>
                         <div class="categorias-checkboxes">
                             <div class="check-item">
-                                <input type="checkbox" id="categoria-menores" name="categorias" value="Menores">
-                                <label for="categoria-menores">Menores</label>
+                                <input type="checkbox" id="categoria-menores" name="categorias" value="Minors">
+                                <label for="categoria-menores">Minors</label>
                             </div>
                             <div class="check-item">
-                                <input type="checkbox" id="categoria-infantilA" name="categorias" value="Infantil A">
-                                <label for="categoria-infantilA">Infantil A</label>
+                                <input type="checkbox" id="categoria-infantilA" name="categorias" value="Child A">
+                                <label for="categoria-infantilA">Child A</label>
                             </div>
                             <div class="check-item">
-                                <input type="checkbox" id="categoria-infantilB" name="categorias" value="Infantil B">
-                                <label for="categoria-infantilB">Infantil B</label>
+                                <input type="checkbox" id="categoria-infantilB" name="categorias" value="Child B">
+                                <label for="categoria-infantilB">Child B</label>
                             </div>
                             <div class="check-item">
-                                <input type="checkbox" id="categoria-juvenilA" name="categorias" value="Juvenil A">
-                                <label for="categoria-juvenilA">Juvenil A</label>
+                                <input type="checkbox" id="categoria-juvenilA" name="categorias" value="Youth A">
+                                <label for="categoria-juvenilA">Youth A</label>
                             </div>
                             <div class="check-item">
-                                <input type="checkbox" id="categoria-juvenilB" name="categorias" value="Juvenil B">
-                                <label for="categoria-juvenilB">Juvenil B</label>
+                                <input type="checkbox" id="categoria-juvenilB" name="categorias" value="Youth B">
+                                <label for="categoria-juvenilB">Youth B</label>
                             </div>
                             <div class="check-item">
                                 <input type="checkbox" id="categoria-tc" name="categorias" value="TC">
                                 <label for="categoria-tc">TC</label>
                             </div>
                             <div class="check-item">
-                                <input type="checkbox" id="categoria-master" name="categorias" value="Máster">
-                                <label for="categoria-master">Máster</label>
+                                <input type="checkbox" id="categoria-master" name="categorias" value="Master">
+                                <label for="categoria-master">Master</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group full-width">
-                        <label for="descripcion">Descripción *</label>
+                        <label for="descripcion">Description *</label>
                         <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
                     </div>
-                        <p>*Si tu evento dura un dia, selecciona que el termino de la competencia al dia siguiente</p>
-                        <p>*Todas las competencias del dia se publicaran a las 23.55 horas</p>
-                        <p>*El organizador del torneo recibira un email con la confirmación que el evento fue aceptado</p>
-                        <p>*Todos los eventos se podran ver al final de la pagina en un calendario google que se podran suscribir</p>
-                        <p>*Cualquier duda puedes escribirnos a traves del boton CONTACTO</p>
+                    <p>*If your event lasts one day, set the end date to the following day.</p>
+                    <p>*All events for the day will be published at 11:55 PM.</p>
+                    <p>*The tournament organizer will receive a confirmation email once the event is accepted.</p>
+                    <p>*All events will be visible in a Google Calendar at the bottom of the page, which you can
+                        subscribe to.</p>
+                    <p>*For any questions, feel free to contact us using the CONTACT button.</p>
                     <div class="form-group full-width file-group">
-                        <label>Documento de bases (requerido) *</label>
+                        <label>Rules Document (required) *</label>
                         <div class="file-upload">
                             <input type="file" id="archivo" name="archivo" required>
                             <div class="file-info">
-                                <span class="file-name">Ningún archivo seleccionado</span>
-                                <button type="button" class="btn-file">Seleccionar archivo</button>
+                                <span class="file-name">No file selected</span>
+                                <button type="button" class="btn-file">Select file</button>
                             </div>
                         </div>
-                        <p class="file-help">Formatos aceptados: PDF y ZIP.</p>
+                        <p class="file-help">Accepted formats: PDF and ZIP.</p>
                     </div>
                 </div>
 
                 <div class="form-submit">
-                    <button type="submit" class="btn-submit">Registrar Competencia</button>
+                    <button type="submit" class="btn-submit">Register Competition</button>
                 </div>
 
                 <div id="form-messages" class="form-messages"></div>
@@ -192,23 +191,22 @@
 
     <section id="calendario-eventos" class="calendario-eventos">
         <div class="container">
-            <h2>Próximas Competencias</h2>
-            <!-- Widget de Google Calendar -->
+            <h2>Upcoming Competitions</h2>
+            <!-- Google Calendar widget -->
             <iframe
                 src="https://calendar.google.com/calendar/embed?src=YWIzOWY0YmFiMTkzNWY1MGQ5NWE0NTJiNGI0MGQ0ODBjNmExNTVhOTU0YWU2Nzg1OWUxMGNjN2YyMDFjN2ExY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
                 style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
             </iframe>
-
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">
+                <div class="footer-logo">
                     <h3>Swimx<span>Training</span></h3>
                 </div>
-                <p>&copy; 2025 Swimx Training. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Swimx Training. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -522,12 +520,5 @@
         });
     </script>
 </body>
-<!--COMANDOS DE GITHUB
-git init > para iniciar git
-git add . > para guardar los cambios realizados
-git commit -m" entre las comillas se agregan los comentarios de los cambios realizados
-git status > para ver condición de la situación de los distintos archivos
-git push origin master > para subir los cambios a github
--->
 
 </html>
