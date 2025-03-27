@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Competencias - Swimx Training</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Swimx<span>Training</span></h1>
+            </div>
+            <!-- Botón para activar/desactivar el menú en dispositivos móviles -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Quiénes Somos</a></li>
+                    <li><a href="index.html">Servicios</a></li>
+                    <li><a href="index.html">Precios</a></li>
+                    <li><a href="videos.html" class="active">Videos</a></li>
+                    <!--<li><a href="#testimonios">Testimonios</a></li>-->
+                    <li><a href="index.html">Proceso</a></li>
+                    <li><a href="index.html">FAQ</a></li>
+                    <li><a href="index.html" class="btn-contacto">Contacto</a></li>
+                    <!--<li><a href="/what if/index.html">What if</a></li>-->
+                    <li><a href="calendario.html" class="active">Calendario</a></li>
+                    <!--<li><a href="blog.html">Blog</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-base hero-calendario">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Calendario de Competencias</h2>
+                <p>Consulta las próximas competencias de natación y registra tus eventos para compartir con la comunidad
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="registro-competencia" class="registro-competencia">
+        <div class="container">
+            <h2>Registrar Nueva Competencia</h2>
+            <p class="section-description">
+                Completa el siguiente formulario para añadir tu competencia al calendario. Los campos marcados con * son
+                obligatorios.
+            </p>
+
+            <form id="competencia-form" class="competencia-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la competencia *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region">Región *</label>
+                        <select id="region" name="region" required>
+                            <option value="">Selecciona una región</option>
+                            <option value="arica">Arica y Parinacota</option>
+                            <option value="tarapaca">Tarapacá</option>
+                            <option value="antofagasta">Antofagasta</option>
+                            <option value="atacama">Atacama</option>
+                            <option value="coquimbo">Coquimbo</option>
+                            <option value="valparaiso">Valparaíso</option>
+                            <option value="metropolitana">Metropolitana de Santiago</option>
+                            <option value="ohiggins">O'Higgins</option>
+                            <option value="maule">Maule</option>
+                            <option value="nuble">Ñuble</option>
+                            <option value="biobio">Biobío</option>
+                            <option value="araucania">La Araucanía</option>
+                            <option value="losrios">Los Ríos</option>
+                            <option value="loslagos">Los Lagos</option>
+                            <option value="aysen">Aysén</option>
+                            <option value="magallanes">Magallanes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comuna">Comuna *</label>
+                        <select id="comuna" name="comuna" required>
+                            <option value="">Selecciona primero una región</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <select id="ciudad" name="ciudad">
+                            <option value="">Selecciona primero una comuna</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha-inicio">Fecha de inicio *</label>
+                        <input type="date" id="fecha-inicio" name="fecha-inicio" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha-termino">Fecha de término *</label>
+                        <input type="date" id="fecha-termino" name="fecha-termino" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo-piscina">Tipo de piscina *</label>
+                        <select id="tipo-piscina" name="tipo-piscina" required>
+                            <option value="">Selecciona tipo de piscina</option>
+                            <option value="25m">25 metros</option>
+                            <option value="50m">50 metros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email del organizador *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group categorias-group full-width">
+                        <label>Categorías que competirán *</label>
+                        <div class="categorias-checkboxes">
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-menores" name="categorias" value="Menores">
+                                <label for="categoria-menores">Menores</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-infantilA" name="categorias" value="Infantil A">
+                                <label for="categoria-infantilA">Infantil A</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-infantilB" name="categorias" value="Infantil B">
+                                <label for="categoria-infantilB">Infantil B</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-juvenilA" name="categorias" value="Juvenil A">
+                                <label for="categoria-juvenilA">Juvenil A</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-juvenilB" name="categorias" value="Juvenil B">
+                                <label for="categoria-juvenilB">Juvenil B</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-tc" name="categorias" value="TC">
+                                <label for="categoria-tc">TC</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="categoria-master" name="categorias" value="Máster">
+                                <label for="categoria-master">Máster</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="descripcion">Descripción *</label>
+                        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                    </div>
+                        <p>*Si tu evento dura un dia, selecciona que el termino de la competencia al dia siguiente</p>
+                        <p>*Todas las competencias del dia se publicaran a las 23.55 horas</p>
+                        <p>*El organizador del torneo recibira un email con la confirmación que el evento fue aceptado</p>
+                        <p>*Todos los eventos se podran ver al final de la pagina en un calendario google que se podran suscribir</p>
+                        <p>*Cualquier duda puedes escribirnos a traves del boton CONTACTO</p>
+                    <div class="form-group full-width file-group">
+                        <label>Documento de bases (requerido) *</label>
+                        <div class="file-upload">
+                            <input type="file" id="archivo" name="archivo" required>
+                            <div class="file-info">
+                                <span class="file-name">Ningún archivo seleccionado</span>
+                                <button type="button" class="btn-file">Seleccionar archivo</button>
+                            </div>
+                        </div>
+                        <p class="file-help">Formatos aceptados: PDF y ZIP.</p>
+                    </div>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn-submit">Registrar Competencia</button>
+                </div>
+
+                <div id="form-messages" class="form-messages"></div>
+            </form>
+        </div>
+    </section>
+
+    <section id="calendario-eventos" class="calendario-eventos">
+        <div class="container">
+            <h2>Próximas Competencias</h2>
+            <!-- Widget de Google Calendar -->
+            <iframe
+                src="https://calendar.google.com/calendar/embed?src=YWIzOWY0YmFiMTkzNWY1MGQ5NWE0NTJiNGI0MGQ0ODBjNmExNTVhOTU0YWU2Nzg1OWUxMGNjN2YyMDFjN2ExY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+            </iframe>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <h3>Swimx<span>Training</span></h3>
+                </div>
+                <p>&copy; 2025 Swimx Training. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("DOM completamente cargado");
+
+            // Datos para el manejo de regiones, comunas y ciudades
+            const regionesData = {
+                'arica': {
+                    comunas: {
+                        'arica': ['Arica'],
+                        'camarones': ['Camarones']
+                    }
+                },
+                'tarapaca': {
+                    comunas: {
+                        'iquique': ['Iquique'],
+                        'alto_hospicio': ['Alto Hospicio'],
+                        'pozo_almonte': ['Pozo Almonte']
+                    }
+                },
+                'antofagasta': {
+                    comunas: {
+                        'antofagasta': ['Antofagasta'],
+                        'mejillones': ['Mejillones'],
+                        'calama': ['Calama']
+                    }
+                },
+                'atacama': {
+                    comunas: {
+                        'copiapo': ['Copiapó'],
+                        'caldera': ['Caldera'],
+                        'vallenar': ['Vallenar']
+                    }
+                },
+                'coquimbo': {
+                    comunas: {
+                        'la_serena': ['La Serena'],
+                        'coquimbo': ['Coquimbo'],
+                        'ovalle': ['Ovalle']
+                    }
+                },
+                'valparaiso': {
+                    comunas: {
+                        'valparaiso': ['Valparaíso'],
+                        'vina_del_mar': ['Viña del Mar'],
+                        'quilpue': ['Quilpué'],
+                        'san_antonio': ['San Antonio']
+                    }
+                },
+                'metropolitana': {
+                    comunas: {
+                        'santiago': ['Santiago'],
+                        'providencia': ['Providencia'],
+                        'las_condes': ['Las Condes'],
+                        'maipu': ['Maipú'],
+                        'nunoa': ['Ñuñoa']
+                    }
+                },
+                'ohiggins': {
+                    comunas: {
+                        'rancagua': ['Rancagua'],
+                        'san_fernando': ['San Fernando']
+                    }
+                },
+                'maule': {
+                    comunas: {
+                        'talca': ['Talca'],
+                        'curico': ['Curicó'],
+                        'linares': ['Linares']
+                    }
+                },
+                'nuble': {
+                    comunas: {
+                        'chillan': ['Chillán'],
+                        'chillan_viejo': ['Chillán Viejo']
+                    }
+                },
+                'biobio': {
+                    comunas: {
+                        'concepcion': ['Concepción'],
+                        'talcahuano': ['Talcahuano'],
+                        'los_angeles': ['Los Ángeles']
+                    }
+                },
+                'araucania': {
+                    comunas: {
+                        'temuco': ['Temuco'],
+                        'padre_las_casas': ['Padre Las Casas']
+                    }
+                },
+                'losrios': {
+                    comunas: {
+                        'valdivia': ['Valdivia'],
+                        'la_union': ['La Unión']
+                    }
+                },
+                'loslagos': {
+                    comunas: {
+                        'puerto_montt': ['Puerto Montt'],
+                        'osorno': ['Osorno'],
+                        'castro': ['Castro']
+                    }
+                },
+                'aysen': {
+                    comunas: {
+                        'coyhaique': ['Coyhaique'],
+                        'puerto_aysen': ['Puerto Aysén']
+                    }
+                },
+                'magallanes': {
+                    comunas: {
+                        'punta_arenas': ['Punta Arenas'],
+                        'puerto_natales': ['Puerto Natales']
+                    }
+                }
+            };
+
+            // Elementos del DOM
+            const regionSelect = document.getElementById('region');
+            const comunaSelect = document.getElementById('comuna');
+            const ciudadSelect = document.getElementById('ciudad');
+            const fileInput = document.getElementById('archivo');
+            const fileInfoName = document.querySelector('.file-name');
+            const fileButton = document.querySelector('.btn-file');
+            const competenciaForm = document.getElementById('competencia-form');
+            const formMessages = document.getElementById('form-messages');
+
+            // Configurar mínimas fechas en los inputs de fecha
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('fecha-inicio').min = today;
+            document.getElementById('fecha-termino').min = today;
+
+            // Manejador para actualizar la fecha de término según la fecha de inicio
+            document.getElementById('fecha-inicio').addEventListener('change', function () {
+                document.getElementById('fecha-termino').min = this.value;
+                if (document.getElementById('fecha-termino').value && document.getElementById('fecha-termino').value < this.value) {
+                    document.getElementById('fecha-termino').value = this.value;
+                }
+            });
+
+            // Al cargar, desactivar los selectores que dependen de otros
+            comunaSelect.disabled = true;
+            ciudadSelect.disabled = true;
+
+            // Manejador para el cambio de región
+            regionSelect.addEventListener('change', function () {
+                console.log("Región seleccionada:", this.value);
+
+                // Resetear comuna y ciudad
+                comunaSelect.innerHTML = '<option value="">Selecciona una comuna</option>';
+                ciudadSelect.innerHTML = '<option value="">Selecciona primero una comuna</option>';
+
+                // Si no hay región seleccionada, desactivar selectores dependientes
+                if (!this.value) {
+                    comunaSelect.disabled = true;
+                    ciudadSelect.disabled = true;
+                    return;
+                }
+
+                // Activar selector de comuna
+                comunaSelect.disabled = false;
+
+                // Cargar las comunas de la región seleccionada
+                const comunas = regionesData[this.value].comunas;
+                for (const comunaKey in comunas) {
+                    const option = document.createElement('option');
+                    option.value = comunaKey;
+                    option.textContent = comunaKey.replace(/_/g, ' ')
+                        .replace(/\w\S*/g,
+                            txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                    comunaSelect.appendChild(option);
+                }
+
+                // Desactivar selector de ciudad hasta que se seleccione comuna
+                ciudadSelect.disabled = true;
+            });
+
+            // Manejador para el cambio de comuna
+            comunaSelect.addEventListener('change', function () {
+                console.log("Comuna seleccionada:", this.value);
+
+                // Resetear ciudad
+                ciudadSelect.innerHTML = '<option value="">Selecciona una ciudad</option>';
+
+                // Si no hay comuna seleccionada, desactivar selector de ciudad
+                if (!this.value) {
+                    ciudadSelect.disabled = true;
+                    return;
+                }
+
+                const regionSeleccionada = regionSelect.value;
+
+                // Verificar que existan los datos
+                if (!regionesData[regionSeleccionada] ||
+                    !regionesData[regionSeleccionada].comunas ||
+                    !regionesData[regionSeleccionada].comunas[this.value]) {
+                    console.error('Error: Datos no encontrados para la región/comuna seleccionada');
+                    return;
+                }
+
+                // Activar selector de ciudad
+                ciudadSelect.disabled = false;
+
+                // Cargar las ciudades de la comuna seleccionada
+                const ciudades = regionesData[regionSeleccionada].comunas[this.value];
+                ciudades.forEach(ciudad => {
+                    const option = document.createElement('option');
+                    option.value = ciudad;
+                    option.textContent = ciudad;
+                    ciudadSelect.appendChild(option);
+                });
+            });
+
+            // Manejador para el input de archivo
+            fileButton.addEventListener('click', function () {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    fileInfoName.textContent = this.files[0].name;
+                } else {
+                    fileInfoName.textContent = 'Ningún archivo seleccionado';
+                }
+            });
+
+            // Validación del formulario
+            function validarFormulario() {
+                // Verificar categorías seleccionadas
+                const categoriaValida = document.querySelectorAll('input[name="categorias"]:checked').length > 0;
+                if (!categoriaValida) {
+                    formMessages.innerHTML = '<div class="alert alert-error">Selecciona al menos una categoría</div>';
+                    return false;
+                }
+
+                // Verificar que se ha seleccionado un archivo
+                if (fileInput.files.length === 0) {
+                    formMessages.innerHTML = '<div class="alert alert-error">Debes subir un documento de bases</div>';
+                    return false;
+                }
+
+                return true;
+            }
+
+            // Envío del formulario
+            competenciaForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                console.log("Formulario enviado");
+
+                // Validar formulario
+                if (!validarFormulario()) {
+                    return;
+                }
+
+                // Crear FormData para enviar los datos
+                const formData = new FormData(this);
+
+                // Recopilar categorías seleccionadas
+                const categorias = [];
+                document.querySelectorAll('input[name="categorias"]:checked').forEach(checkbox => {
+                    categorias.push(checkbox.value);
+                });
+
+                // Reemplazar los checkboxes de categorías por un array
+                formData.delete('categorias');
+                formData.append('categorias', categorias.join(', '));
+
+                // Mostrar indicador de carga
+                formMessages.innerHTML = '<div class="alert alert-info">Enviando datos...</div>';
+
+                // Enviar datos al webhook
+                fetch('https://hook.us2.make.com/26r1m8d2erwkuofvc8s4hq633l14w4ji', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.text();
+                        }
+                        throw new Error('Error en la respuesta del servidor');
+                    })
+                    .then(data => {
+                        // Mostrar mensaje de éxito
+                        formMessages.innerHTML = '<div class="alert alert-success">¡Competencia registrada con éxito!</div>';
+                        competenciaForm.reset();
+                        fileInfoName.textContent = 'Ningún archivo seleccionado';
+
+                        // Recargar la página después de 3 segundos
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        formMessages.innerHTML = '<div class="alert alert-error">Error al enviar los datos. Inténtalo de nuevo más tarde.</div>';
+                    });
+            });
+
+            // Funcionalidad del botón de menú (para dispositivos móviles)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('nav ul');
+
+            if (menuToggle && navUl) {
+                menuToggle.addEventListener('click', function () {
+                    navUl.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+<!--COMANDOS DE GITHUB
+git init > para iniciar git
+git add . > para guardar los cambios realizados
+git commit -m" entre las comillas se agregan los comentarios de los cambios realizados
+git status > para ver condición de la situación de los distintos archivos
+git push origin master > para subir los cambios a github
+-->
+
+</html>
