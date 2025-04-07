@@ -94,13 +94,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="ciudad">City</label>
-                        <select id="ciudad" name="ciudad">
-                            <option value="">Select a city</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label for="fecha-inicio">Start Date *</label>
                         <input type="date" id="fecha-inicio" name="fecha-inicio" required>
                     </div>
@@ -214,136 +207,75 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            console.log("DOM completamente cargado");
+            console.log("DOM fully loaded");
 
-            // Datos para el manejo de regiones, comunas y ciudades
+            // Region and commune data
             const regionesData = {
                 'arica': {
-                    comunas: {
-                        'arica': ['Arica'],
-                        'camarones': ['Camarones']
-                    }
+                    comunas: ['Arica', 'Camarones']
                 },
                 'tarapaca': {
-                    comunas: {
-                        'iquique': ['Iquique'],
-                        'alto_hospicio': ['Alto Hospicio'],
-                        'pozo_almonte': ['Pozo Almonte']
-                    }
+                    comunas: ['Iquique', 'Alto Hospicio', 'Pozo Almonte']
                 },
                 'antofagasta': {
-                    comunas: {
-                        'antofagasta': ['Antofagasta'],
-                        'mejillones': ['Mejillones'],
-                        'calama': ['Calama']
-                    }
+                    comunas: ['Antofagasta', 'Mejillones', 'Calama']
                 },
                 'atacama': {
-                    comunas: {
-                        'copiapo': ['Copiapó'],
-                        'caldera': ['Caldera'],
-                        'vallenar': ['Vallenar']
-                    }
+                    comunas: ['Copiapó', 'Caldera', 'Vallenar']
                 },
                 'coquimbo': {
-                    comunas: {
-                        'la_serena': ['La Serena'],
-                        'coquimbo': ['Coquimbo'],
-                        'ovalle': ['Ovalle']
-                    }
+                    comunas: ['La Serena', 'Coquimbo', 'Ovalle']
                 },
                 'valparaiso': {
-                    comunas: {
-                        'valparaiso': ['Valparaíso'],
-                        'vina_del_mar': ['Viña del Mar'],
-                        'quilpue': ['Quilpué'],
-                        'san_antonio': ['San Antonio']
-                    }
+                    comunas: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'San Antonio']
                 },
                 'metropolitana': {
-                    comunas: {
-                        'santiago': ['Santiago'],
-                        'providencia': ['Providencia'],
-                        'las_condes': ['Las Condes'],
-                        'maipu': ['Maipú'],
-                        'nunoa': ['Ñuñoa']
-                    }
+                    comunas: ['Santiago', 'Providencia', 'Las Condes', 'Maipú', 'Ñuñoa']
                 },
                 'ohiggins': {
-                    comunas: {
-                        'rancagua': ['Rancagua'],
-                        'san_fernando': ['San Fernando']
-                    }
+                    comunas: ['Rancagua', 'San Fernando']
                 },
                 'maule': {
-                    comunas: {
-                        'talca': ['Talca'],
-                        'curico': ['Curicó'],
-                        'linares': ['Linares']
-                    }
+                    comunas: ['Talca', 'Curicó', 'Linares']
                 },
                 'nuble': {
-                    comunas: {
-                        'chillan': ['Chillán'],
-                        'chillan_viejo': ['Chillán Viejo']
-                    }
+                    comunas: ['Chillán', 'Chillán Viejo']
                 },
                 'biobio': {
-                    comunas: {
-                        'concepcion': ['Concepción'],
-                        'talcahuano': ['Talcahuano'],
-                        'los_angeles': ['Los Ángeles']
-                    }
+                    comunas: ['Concepción', 'Talcahuano', 'Los Ángeles']
                 },
                 'araucania': {
-                    comunas: {
-                        'temuco': ['Temuco'],
-                        'padre_las_casas': ['Padre Las Casas']
-                    }
+                    comunas: ['Temuco', 'Padre Las Casas']
                 },
                 'losrios': {
-                    comunas: {
-                        'valdivia': ['Valdivia'],
-                        'la_union': ['La Unión']
-                    }
+                    comunas: ['Valdivia', 'La Unión']
                 },
                 'loslagos': {
-                    comunas: {
-                        'puerto_montt': ['Puerto Montt'],
-                        'osorno': ['Osorno'],
-                        'castro': ['Castro']
-                    }
+                    comunas: ['Puerto Montt', 'Osorno', 'Castro']
                 },
                 'aysen': {
-                    comunas: {
-                        'coyhaique': ['Coyhaique'],
-                        'puerto_aysen': ['Puerto Aysén']
-                    }
+                    comunas: ['Coyhaique', 'Puerto Aysén']
                 },
                 'magallanes': {
-                    comunas: {
-                        'punta_arenas': ['Punta Arenas'],
-                        'puerto_natales': ['Puerto Natales']
-                    }
+                    comunas: ['Punta Arenas', 'Puerto Natales']
                 }
             };
 
-            // Elementos del DOM
+            // DOM Elements
             const regionSelect = document.getElementById('region');
             const comunaSelect = document.getElementById('comuna');
-            const ciudadSelect = document.getElementById('ciudad');
             const fileInput = document.getElementById('archivo');
             const fileInfoName = document.querySelector('.file-name');
             const fileButton = document.querySelector('.btn-file');
             const competenciaForm = document.getElementById('competencia-form');
             const formMessages = document.getElementById('form-messages');
 
-            // Configurar mínimas fechas en los inputs de fecha
+            // Set minimum dates for date inputs
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('fecha-inicio').min = today;
             document.getElementById('fecha-termino').min = today;
 
-            // Manejador para actualizar la fecha de término según la fecha de inicio
+            // Update end date based on start date
             document.getElementById('fecha-inicio').addEventListener('change', function () {
                 document.getElementById('fecha-termino').min = this.value;
                 if (document.getElementById('fecha-termino').value && document.getElementById('fecha-termino').value < this.value) {
@@ -351,80 +283,36 @@
                 }
             });
 
-            // Al cargar, desactivar los selectores que dependen de otros
+            // Initially disable the commune selector
             comunaSelect.disabled = true;
-            ciudadSelect.disabled = true;
 
-            // Manejador para el cambio de región
+            // Region selection handler
             regionSelect.addEventListener('change', function () {
-                console.log("Región seleccionada:", this.value);
+                console.log("Selected region:", this.value);
 
-                // Resetear comuna y ciudad
-                comunaSelect.innerHTML = '<option value="">Selecciona una comuna</option>';
-                ciudadSelect.innerHTML = '<option value="">Selecciona primero una comuna</option>';
+                // Reset commune selector
+                comunaSelect.innerHTML = '<option value="">Select a commune</option>';
 
-                // Si no hay región seleccionada, desactivar selectores dependientes
+                // If no region selected, disable commune selector
                 if (!this.value) {
                     comunaSelect.disabled = true;
-                    ciudadSelect.disabled = true;
                     return;
                 }
 
-                // Activar selector de comuna
+                // Enable commune selector
                 comunaSelect.disabled = false;
 
-                // Cargar las comunas de la región seleccionada
+                // Load communes for the selected region
                 const comunas = regionesData[this.value].comunas;
-                for (const comunaKey in comunas) {
+                comunas.forEach(comuna => {
                     const option = document.createElement('option');
-                    option.value = comunaKey;
-                    option.textContent = comunaKey.replace(/_/g, ' ')
-                        .replace(/\w\S*/g,
-                            txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                    option.value = comuna;
+                    option.textContent = comuna;
                     comunaSelect.appendChild(option);
-                }
-
-                // Desactivar selector de ciudad hasta que se seleccione comuna
-                ciudadSelect.disabled = true;
-            });
-
-            // Manejador para el cambio de comuna
-            comunaSelect.addEventListener('change', function () {
-                console.log("Comuna seleccionada:", this.value);
-
-                // Resetear ciudad
-                ciudadSelect.innerHTML = '<option value="">Selecciona una ciudad</option>';
-
-                // Si no hay comuna seleccionada, desactivar selector de ciudad
-                if (!this.value) {
-                    ciudadSelect.disabled = true;
-                    return;
-                }
-
-                const regionSeleccionada = regionSelect.value;
-
-                // Verificar que existan los datos
-                if (!regionesData[regionSeleccionada] ||
-                    !regionesData[regionSeleccionada].comunas ||
-                    !regionesData[regionSeleccionada].comunas[this.value]) {
-                    console.error('Error: Datos no encontrados para la región/comuna seleccionada');
-                    return;
-                }
-
-                // Activar selector de ciudad
-                ciudadSelect.disabled = false;
-
-                // Cargar las ciudades de la comuna seleccionada
-                const ciudades = regionesData[regionSeleccionada].comunas[this.value];
-                ciudades.forEach(ciudad => {
-                    const option = document.createElement('option');
-                    option.value = ciudad;
-                    option.textContent = ciudad;
-                    ciudadSelect.appendChild(option);
                 });
             });
 
-            // Manejador para el input de archivo
+            // File input handler
             fileButton.addEventListener('click', function () {
                 fileInput.click();
             });
@@ -433,55 +321,55 @@
                 if (this.files.length > 0) {
                     fileInfoName.textContent = this.files[0].name;
                 } else {
-                    fileInfoName.textContent = 'Ningún archivo seleccionado';
+                    fileInfoName.textContent = 'No file selected';
                 }
             });
 
-            // Validación del formulario
-            function validarFormulario() {
-                // Verificar categorías seleccionadas
+            // Form validation
+            function validateForm() {
+                // Check for selected categories
                 const categoriaValida = document.querySelectorAll('input[name="categorias"]:checked').length > 0;
                 if (!categoriaValida) {
-                    formMessages.innerHTML = '<div class="alert alert-error">Selecciona al menos una categoría</div>';
+                    formMessages.innerHTML = '<div class="alert alert-error">Please select at least one category</div>';
                     return false;
                 }
 
-                // Verificar que se ha seleccionado un archivo
+                // Check for selected file
                 if (fileInput.files.length === 0) {
-                    formMessages.innerHTML = '<div class="alert alert-error">Debes subir un documento de bases</div>';
+                    formMessages.innerHTML = '<div class="alert alert-error">You must upload a rules document</div>';
                     return false;
                 }
 
                 return true;
             }
 
-            // Envío del formulario
+            // Form submission
             competenciaForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                console.log("Formulario enviado");
+                console.log("Form submitted");
 
-                // Validar formulario
-                if (!validarFormulario()) {
+                // Validate form
+                if (!validateForm()) {
                     return;
                 }
 
-                // Crear FormData para enviar los datos
+                // Create FormData for sending
                 const formData = new FormData(this);
 
-                // Recopilar categorías seleccionadas
+                // Gather selected categories
                 const categorias = [];
                 document.querySelectorAll('input[name="categorias"]:checked').forEach(checkbox => {
                     categorias.push(checkbox.value);
                 });
 
-                // Reemplazar los checkboxes de categorías por un array
+                // Replace category checkboxes with an array
                 formData.delete('categorias');
                 formData.append('categorias', categorias.join(', '));
 
-                // Mostrar indicador de carga
-                formMessages.innerHTML = '<div class="alert alert-info">Enviando datos...</div>';
+                // Show loading indicator
+                formMessages.innerHTML = '<div class="alert alert-info">Sending data...</div>';
 
-                // Enviar datos al webhook
+                // Send data to webhook
                 fetch('https://hook.us2.make.com/26r1m8d2erwkuofvc8s4hq633l14w4ji', {
                     method: 'POST',
                     body: formData
@@ -490,26 +378,26 @@
                         if (response.ok) {
                             return response.text();
                         }
-                        throw new Error('Error en la respuesta del servidor');
+                        throw new Error('Error in server response');
                     })
                     .then(data => {
-                        // Mostrar mensaje de éxito
-                        formMessages.innerHTML = '<div class="alert alert-success">¡Competencia registrada con éxito!</div>';
+                        // Show success message
+                        formMessages.innerHTML = '<div class="alert alert-success">Competition registered successfully!</div>';
                         competenciaForm.reset();
-                        fileInfoName.textContent = 'Ningún archivo seleccionado';
+                        fileInfoName.textContent = 'No file selected';
 
-                        // Recargar la página después de 3 segundos
+                        // Reload page after 3 seconds
                         setTimeout(() => {
                             window.location.reload();
                         }, 3000);
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        formMessages.innerHTML = '<div class="alert alert-error">Error al enviar los datos. Inténtalo de nuevo más tarde.</div>';
+                        formMessages.innerHTML = '<div class="alert alert-error">Error sending data. Please try again later.</div>';
                     });
             });
 
-            // Funcionalidad del botón de menú (para dispositivos móviles)
+            // Mobile menu toggle functionality
             const menuToggle = document.querySelector('.menu-toggle');
             const navUl = document.querySelector('nav ul');
 

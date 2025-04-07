@@ -96,13 +96,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="ciudad">Ciudad</label>
-                        <select id="ciudad" name="ciudad">
-                            <option value="">Selecciona primero una comuna</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label for="fecha-inicio">Fecha de inicio *</label>
                         <input type="date" id="fecha-inicio" name="fecha-inicio" required>
                     </div>
@@ -218,122 +211,61 @@
         document.addEventListener('DOMContentLoaded', function () {
             console.log("DOM completamente cargado");
 
-            // Datos para el manejo de regiones, comunas y ciudades
+            // Datos para el manejo de regiones y comunas
             const regionesData = {
                 'arica': {
-                    comunas: {
-                        'arica': ['Arica'],
-                        'camarones': ['Camarones']
-                    }
+                    comunas: ['Arica', 'Camarones']
                 },
                 'tarapaca': {
-                    comunas: {
-                        'iquique': ['Iquique'],
-                        'alto_hospicio': ['Alto Hospicio'],
-                        'pozo_almonte': ['Pozo Almonte']
-                    }
+                    comunas: ['Iquique', 'Alto Hospicio', 'Pozo Almonte']
                 },
                 'antofagasta': {
-                    comunas: {
-                        'antofagasta': ['Antofagasta'],
-                        'mejillones': ['Mejillones'],
-                        'calama': ['Calama']
-                    }
+                    comunas: ['Antofagasta', 'Mejillones', 'Calama']
                 },
                 'atacama': {
-                    comunas: {
-                        'copiapo': ['Copiapó'],
-                        'caldera': ['Caldera'],
-                        'vallenar': ['Vallenar']
-                    }
+                    comunas: ['Copiapó', 'Caldera', 'Vallenar']
                 },
                 'coquimbo': {
-                    comunas: {
-                        'la_serena': ['La Serena'],
-                        'coquimbo': ['Coquimbo'],
-                        'ovalle': ['Ovalle']
-                    }
+                    comunas: ['La Serena', 'Coquimbo', 'Ovalle']
                 },
                 'valparaiso': {
-                    comunas: {
-                        'valparaiso': ['Valparaíso'],
-                        'vina_del_mar': ['Viña del Mar'],
-                        'quilpue': ['Quilpué'],
-                        'san_antonio': ['San Antonio']
-                    }
+                    comunas: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'San Antonio']
                 },
                 'metropolitana': {
-                    comunas: {
-                        'santiago': ['Santiago'],
-                        'providencia': ['Providencia'],
-                        'las_condes': ['Las Condes'],
-                        'maipu': ['Maipú'],
-                        'nunoa': ['Ñuñoa']
-                    }
+                    comunas: ['Santiago', 'Providencia', 'Las Condes', 'Maipú', 'Ñuñoa']
                 },
                 'ohiggins': {
-                    comunas: {
-                        'rancagua': ['Rancagua'],
-                        'san_fernando': ['San Fernando']
-                    }
+                    comunas: ['Rancagua', 'San Fernando']
                 },
                 'maule': {
-                    comunas: {
-                        'talca': ['Talca'],
-                        'curico': ['Curicó'],
-                        'linares': ['Linares']
-                    }
+                    comunas: ['Talca', 'Curicó', 'Linares']
                 },
                 'nuble': {
-                    comunas: {
-                        'chillan': ['Chillán'],
-                        'chillan_viejo': ['Chillán Viejo']
-                    }
+                    comunas: ['Chillán', 'Chillán Viejo']
                 },
                 'biobio': {
-                    comunas: {
-                        'concepcion': ['Concepción'],
-                        'talcahuano': ['Talcahuano'],
-                        'los_angeles': ['Los Ángeles']
-                    }
+                    comunas: ['Concepción', 'Talcahuano', 'Los Ángeles']
                 },
                 'araucania': {
-                    comunas: {
-                        'temuco': ['Temuco'],
-                        'padre_las_casas': ['Padre Las Casas']
-                    }
+                    comunas: ['Temuco', 'Padre Las Casas']
                 },
                 'losrios': {
-                    comunas: {
-                        'valdivia': ['Valdivia'],
-                        'la_union': ['La Unión']
-                    }
+                    comunas: ['Valdivia', 'La Unión']
                 },
                 'loslagos': {
-                    comunas: {
-                        'puerto_montt': ['Puerto Montt'],
-                        'osorno': ['Osorno'],
-                        'castro': ['Castro']
-                    }
+                    comunas: ['Puerto Montt', 'Osorno', 'Castro']
                 },
                 'aysen': {
-                    comunas: {
-                        'coyhaique': ['Coyhaique'],
-                        'puerto_aysen': ['Puerto Aysén']
-                    }
+                    comunas: ['Coyhaique', 'Puerto Aysén']
                 },
                 'magallanes': {
-                    comunas: {
-                        'punta_arenas': ['Punta Arenas'],
-                        'puerto_natales': ['Puerto Natales']
-                    }
+                    comunas: ['Punta Arenas', 'Puerto Natales']
                 }
             };
 
             // Elementos del DOM
             const regionSelect = document.getElementById('region');
             const comunaSelect = document.getElementById('comuna');
-            const ciudadSelect = document.getElementById('ciudad');
             const fileInput = document.getElementById('archivo');
             const fileInfoName = document.querySelector('.file-name');
             const fileButton = document.querySelector('.btn-file');
@@ -353,22 +285,19 @@
                 }
             });
 
-            // Al cargar, desactivar los selectores que dependen de otros
+            // Al cargar, desactivar el selector de comuna
             comunaSelect.disabled = true;
-            ciudadSelect.disabled = true;
 
             // Manejador para el cambio de región
             regionSelect.addEventListener('change', function () {
                 console.log("Región seleccionada:", this.value);
 
-                // Resetear comuna y ciudad
+                // Resetear comuna
                 comunaSelect.innerHTML = '<option value="">Selecciona una comuna</option>';
-                ciudadSelect.innerHTML = '<option value="">Selecciona primero una comuna</option>';
 
-                // Si no hay región seleccionada, desactivar selectores dependientes
+                // Si no hay región seleccionada, desactivar selector de comuna
                 if (!this.value) {
                     comunaSelect.disabled = true;
-                    ciudadSelect.disabled = true;
                     return;
                 }
 
@@ -377,52 +306,11 @@
 
                 // Cargar las comunas de la región seleccionada
                 const comunas = regionesData[this.value].comunas;
-                for (const comunaKey in comunas) {
+                comunas.forEach(comuna => {
                     const option = document.createElement('option');
-                    option.value = comunaKey;
-                    option.textContent = comunaKey.replace(/_/g, ' ')
-                        .replace(/\w\S*/g,
-                            txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                    option.value = comuna;
+                    option.textContent = comuna;
                     comunaSelect.appendChild(option);
-                }
-
-                // Desactivar selector de ciudad hasta que se seleccione comuna
-                ciudadSelect.disabled = true;
-            });
-
-            // Manejador para el cambio de comuna
-            comunaSelect.addEventListener('change', function () {
-                console.log("Comuna seleccionada:", this.value);
-
-                // Resetear ciudad
-                ciudadSelect.innerHTML = '<option value="">Selecciona una ciudad</option>';
-
-                // Si no hay comuna seleccionada, desactivar selector de ciudad
-                if (!this.value) {
-                    ciudadSelect.disabled = true;
-                    return;
-                }
-
-                const regionSeleccionada = regionSelect.value;
-
-                // Verificar que existan los datos
-                if (!regionesData[regionSeleccionada] ||
-                    !regionesData[regionSeleccionada].comunas ||
-                    !regionesData[regionSeleccionada].comunas[this.value]) {
-                    console.error('Error: Datos no encontrados para la región/comuna seleccionada');
-                    return;
-                }
-
-                // Activar selector de ciudad
-                ciudadSelect.disabled = false;
-
-                // Cargar las ciudades de la comuna seleccionada
-                const ciudades = regionesData[regionSeleccionada].comunas[this.value];
-                ciudades.forEach(ciudad => {
-                    const option = document.createElement('option');
-                    option.value = ciudad;
-                    option.textContent = ciudad;
-                    ciudadSelect.appendChild(option);
                 });
             });
 
@@ -523,12 +411,5 @@
         });
     </script>
 </body>
-<!--COMANDOS DE GITHUB
-git init > para iniciar git
-git add . > para guardar los cambios realizados
-git commit -m" entre las comillas se agregan los comentarios de los cambios realizados
-git status > para ver condición de la situación de los distintos archivos
-git push origin master > para subir los cambios a github
--->
 
 </html>
