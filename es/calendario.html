@@ -157,11 +157,12 @@
                         <label for="descripcion">Descripción *</label>
                         <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
                     </div>
-                        <p>*Si tu evento dura un dia, selecciona que el termino de la competencia al dia siguiente</p>
-                        <p>*Todas las competencias del dia se publicaran a las 23.55 horas</p>
-                        <p>*El organizador del torneo recibira un email con la confirmación que el evento fue aceptado</p>
-                        <p>*Todos los eventos se podran ver al final de la pagina en un calendario google que se podran suscribir</p>
-                        <p>*Cualquier duda puedes escribirnos a traves del boton CONTACTO</p>
+                    <p>*Si tu evento dura un dia, selecciona que el termino de la competencia al dia siguiente</p>
+                    <p>*Todas las competencias del dia se publicaran a las 23.55 horas</p>
+                    <p>*El organizador del torneo recibira un email con la confirmación que el evento fue aceptado</p>
+                    <p>*Todos los eventos se podran ver al final de la pagina en un calendario google que se podran
+                        suscribir</p>
+                    <p>*Cualquier duda puedes escribirnos a traves del boton CONTACTO</p>
                     <div class="form-group full-width file-group">
                         <label>Documento de bases (requerido) *</label>
                         <div class="file-upload">
@@ -189,7 +190,7 @@
             <h2>Próximas Competencias</h2>
             <!-- Widget de Google Calendar -->
             <iframe
-                src="https://calendar.google.com/calendar/embed?src=YWIzOWY0YmFiMTkzNWY1MGQ5NWE0NTJiNGI0MGQ0ODBjNmExNTVhOTU0YWU2Nzg1OWUxMGNjN2YyMDFjN2ExY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                src="https://calendar.google.com/calendar/embed?src=58fefce5349d09a34531d60330a450954c13e87fb6aeeb3cb286eb0014e238f1%40group.calendar.google.com"
                 style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
             </iframe>
 
@@ -232,7 +233,7 @@
                     comunas: ['Valparaíso', 'Viña del Mar', 'Quilpué', 'San Antonio']
                 },
                 'metropolitana': {
-                    comunas: ['Alhue', 'Buin', 'Calera de Tango', 'Cerrillos', 'Cerro Navia', 'Colina', 'Conchalí', 'Curacaví', 'El Bosque', 'El Monte', 'Estación Central', 'Huechuraba', 'Independencia', 'Isla de Maipo', 'La Cisterna', 'La Florida', 'La Granja', 'Lampa', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea', 'Lo Espejo', 'Lo Prado', 'Macul', 'Maipú', 'María Pinto', 'Melipilla', 'Ñuñoa', 'Padre Hurtado', 'Paine', 'Pedro Aguirre Cerda', 'Peñaflor', 'Peñalolen', 'Pirque', 'Providencia', 'Pudahuel', 'Puente Alto', 'Quilicura', 'Quinta Normal', 'Recoleta', 'Renca', 'San Bernardo', 'San Joaquin', 'San Jose de Maipo', 'San Miguel', 'San Pedro', 'San Ramón','Santiago', 'Talagante', 'Tiltil', 'Vitacura']
+                    comunas: ['Alhue', 'Buin', 'Calera de Tango', 'Cerrillos', 'Cerro Navia', 'Colina', 'Conchalí', 'Curacaví', 'El Bosque', 'El Monte', 'Estación Central', 'Huechuraba', 'Independencia', 'Isla de Maipo', 'La Cisterna', 'La Florida', 'La Granja', 'Lampa', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea', 'Lo Espejo', 'Lo Prado', 'Macul', 'Maipú', 'María Pinto', 'Melipilla', 'Ñuñoa', 'Padre Hurtado', 'Paine', 'Pedro Aguirre Cerda', 'Peñaflor', 'Peñalolen', 'Pirque', 'Providencia', 'Pudahuel', 'Puente Alto', 'Quilicura', 'Quinta Normal', 'Recoleta', 'Renca', 'San Bernardo', 'San Joaquin', 'San Jose de Maipo', 'San Miguel', 'San Pedro', 'San Ramón', 'Santiago', 'Talagante', 'Tiltil', 'Vitacura']
                 },
                 'ohiggins': {
                     comunas: ['Rancagua', 'San Fernando']
@@ -372,7 +373,7 @@
                 formMessages.innerHTML = '<div class="alert alert-info">Enviando datos...</div>';
 
                 // Enviar datos al webhook
-                fetch('https://hook.us2.make.com/26r1m8d2erwkuofvc8s4hq633l14w4ji', {
+                fetch('https://hook.us2.make.com/hj82coole3y5i4f89c6tjvkgec9yhr9z', {
                     method: 'POST',
                     body: formData
                 })
