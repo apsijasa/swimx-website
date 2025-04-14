@@ -1,11 +1,11 @@
 /* Variables globales */
 :root {
-    --color-primary: #0077b6;
-    --color-secondary: #00b4d8;
-    --color-accent: #48cae4;
-    --color-light: #ade8f4;
+    --color-primary: #D40000; /* Rojo corso (Ferrari) */
+    --color-secondary: #B30000; /* Tono un poco más oscuro para hover */
+    --color-accent: #FF0000; /* Rojo brillante para acentos */
+    --color-light: #FFEBEE; /* Rojo muy claro para fondos ligeros */
     --color-white: #ffffff;
-    --color-dark: #03045e;
+    --color-dark: #1A1A1A; /* Oscuro para texto */
     --color-gray: #f8f9fa;
     --color-gray-dark: #6c757d;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -217,7 +217,7 @@ nav ul li a:hover::after {
     color: var(--color-white);
     padding: 160px 0 100px;
     text-align: center;
-    background: linear-gradient(rgba(0, 119, 182, 0.8), rgba(0, 119, 182, 0.8));
+    background: linear-gradient(rgba(212, 0, 0, 0.8), rgba(212, 0, 0, 0.8));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -475,7 +475,7 @@ nav ul li a:hover::after {
 .contacto-form .form-group textarea:focus {
     border-color: var(--color-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
+    box-shadow: 0 0 0 3px rgba(212, 0, 0, 0.2);
 }
 
 .form-messages {
@@ -625,7 +625,7 @@ footer .logo span {
 .form-group textarea:focus {
     border-color: var(--color-primary);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 119, 182, 0.1);
+    box-shadow: 0 0 0 2px rgba(212, 0, 0, 0.1);
 }
 
 .categorias-group {
@@ -715,9 +715,9 @@ input[type="file"] {
 }
 
 .alert-info {
-    background-color: rgba(0, 123, 255, 0.1);
-    border: 1px solid #0077ff;
-    color: #0077ff;
+    background-color: rgba(212, 0, 0, 0.1);
+    border: 1px solid #D40000;
+    color: #D40000;
 }
 
 /* Calendario */
@@ -917,7 +917,7 @@ input[type="file"] {
 
 /* Sección de suscripción al canal de YouTube */
 .suscripcion {
-    background: linear-gradient(rgba(0, 119, 182, 0.9), rgba(0, 119, 182, 0.9)), url('/api/placeholder/1200/400') no-repeat center center/cover;
+    background: linear-gradient(rgba(212, 0, 0, 0.9), rgba(212, 0, 0, 0.9)), url('/api/placeholder/1200/400') no-repeat center center/cover;
     color: var(--color-white);
     padding: 60px 0;
     text-align: center;
@@ -1088,4 +1088,3 @@ select:disabled {
         height: 350px;
     }
 }
-    
